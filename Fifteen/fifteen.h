@@ -1,10 +1,21 @@
 #pragma once
-#include "wxImagePanel.h"
+#include "Block.h"
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <chrono>
 
-class Fifteen : public wxFrame
+class Fifteen
 {
-    wxImagePanel* drawPane;
+	const int *size, *w;
+	std::vector<std::vector <Block*>> grid;
 
 public:
-    Fifteen(const wxString& title);
+	Fifteen(wxString file, wxBitmapType format, const int size);
+
+	int BlockSize();
+	std::vector<std::vector <Block*>> Grid();
+	int Size();
+
+	void Swap(Block* replaceable, Block* substitute);
 };

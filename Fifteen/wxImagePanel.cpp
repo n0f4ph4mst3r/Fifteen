@@ -1,10 +1,26 @@
 #include "wxImagePanel.h"
-#include <vector>
 
 BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)
     EVT_LEFT_DOWN(wxImagePanel::mouseDown)
     EVT_PAINT(wxImagePanel::paintEvent)
+    EVT_TIMER(-1, wxImagePanel::RenderTimer)
 END_EVENT_TABLE()
+
+wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
+    wxPanel(parent), renderTimer(this, -1)
+{
+    source.LoadFile(file, format);
+
+    n = 1;
+
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 4; j++)
+        {
+            blocks.push_back(source.GetSubBitmap(wxRect(w * i, w * j, w, w)));
+            grid[i][j] = n;
+            n++;
+        }
+}
 
 void wxImagePanel::mouseDown(wxMouseEvent& event) 
 {
@@ -26,35 +42,13 @@ void wxImagePanel::mouseDown(wxMouseEvent& event)
     n = grid[x][y];
     grid[x][y] = 16;
     grid[x + dx][y + dy] = n;
-    Refresh();
+    renderTimer.Start(10);
     }
-}
-
-wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
-    wxPanel(parent)
-{
-    source.LoadFile(file, format);
-
-    n = 1;
-
-    for (int i = 0; i < 4; i++)
-        for (int j = 0; j < 4; j++)
-        {
-            blocks.push_back(source.GetSubBitmap(wxRect(w*i, w*j, w, w)));
-            grid[i][j] = n;
-            n++;
-        }
 }
 
 void wxImagePanel::paintEvent(wxPaintEvent& evt)
 {
     wxPaintDC dc(this);
-    render(dc);
-}
-
-void wxImagePanel::paintNow()
-{
-    wxClientDC dc(this);
     render(dc);
 }
 
@@ -66,4 +60,11 @@ void wxImagePanel::render(wxDC& dc)
             n = grid[i][j] - 1;
             dc.DrawBitmap(blocks[n], w*i, w*j, false);
         }
+    renderTimer.Stop();
+}
+
+void wxImagePanel::RenderTimer(wxTimerEvent& event)
+{
+    wxClientDC dc(this);
+    render(dc);
 }

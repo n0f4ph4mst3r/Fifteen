@@ -5,8 +5,9 @@
 class wxImagePanel : public wxPanel
 {
 	wxBitmap source;
-	int n, w;
-	int grid[6][6] = { 0 };
+	int n;
+	const int w = 128;
+	int grid[4][4] = { 0 };
 	std::vector<wxBitmap> blocks;
 
 public:

@@ -154,8 +154,6 @@
   <ItemGroup>
     <ClInclude Include="fifteen.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="wxImagePanel.h" />
   </ItemGroup>
   <ItemGroup>

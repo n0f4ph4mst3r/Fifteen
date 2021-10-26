@@ -7,7 +7,7 @@ Fifteen::Fifteen(const wxString& title)
 
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
 
-    drawPane = new wxImagePanel(this, wxT("C:\\ftp-folder\\workspace.png"), wxBITMAP_TYPE_PNG);
+    drawPane = new wxImagePanel(this, wxT("..\\res\\workspace.png"), wxBITMAP_TYPE_PNG);
     sizer->Add(drawPane, 1, wxEXPAND);
 
     this->SetSizer(sizer);

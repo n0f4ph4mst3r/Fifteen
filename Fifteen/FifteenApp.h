@@ -1,6 +1,6 @@
 #pragma once
 #include "wxImagePanel.h"
-
+//build the application here
 class FifteenApp : public wxFrame
 {
     wxImagePanel* drawPane;

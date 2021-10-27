@@ -12,6 +12,9 @@ Fifteen::Fifteen(wxString file, wxBitmapType format, const int sz)
 	bool gen_done = false;
 	std::vector<int> row;
 
+	//generate a combination and check for parity
+	//if the combination is odd -> repeat cycle
+	//else create grid from a combination
 	while (!gen_done)
 	{
 		for (int i = 0; i < sz*sz; i++) row.push_back(i);
@@ -76,10 +79,10 @@ int Fifteen::Size()
 	return *size;
 }
 
+//dont forget swap element in the grid, before block movement
 void Fifteen::Swap(Block* block1, Block* block2)
 {
 	Block tmp = *block1;
 	*block1 = *block2;
 	*block2 = tmp;
-
 }

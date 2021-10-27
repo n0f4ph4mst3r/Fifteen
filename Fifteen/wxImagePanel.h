@@ -2,6 +2,7 @@
 #include <wx/dcbuffer.h>
 #include "Fifteen.h"
 
+//wxPanel for render
 class wxImagePanel : public wxPanel
 {
 	wxTimer renderTimer;

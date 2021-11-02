@@ -1,3 +1,9 @@
+## v1.0.0-alpha (2021-11-02)
+
+##### New Features
+
+* **image-panel:**  add animation for blocks ([80e34cd8](https://github.com/n0f4ph4mst3r/Fifteen/commit/80e34cd82485f0a438b650ecb03010a7e49e294a))
+
 ### v0.3.0 (2021-11-02)
 
 ##### Chores

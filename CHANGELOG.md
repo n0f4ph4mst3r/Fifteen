@@ -1,3 +1,9 @@
+#### v0.2.0 (2021-11-02)
+
+##### New Features
+
+* **image-panel:**  the blocks are move now ([12e7f21d](https://github.com/n0f4ph4mst3r/Fifteen/commit/12e7f21d1f21855898311c31ded0ca17c49cbe18))
+
 ### v0.1.0 (2021-11-02)
 
 ##### Other Changes

@@ -4,7 +4,8 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
-
+//interface for puzzle
+//instance of class is a logical representation of the puzzle
 class Fifteen
 {
 	const int *size, *w;
@@ -17,5 +18,5 @@ public:
 	std::vector<std::vector <Block*>> Grid();
 	int Size();
 
-	void Swap(Block* replaceable, Block* substitute);
+	void Swap(Block* replaceable, Block* substitute); 
 };

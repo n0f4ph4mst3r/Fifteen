@@ -26,7 +26,7 @@ void wxImagePanel::mouseDown(wxMouseEvent& event)
         dx = dy = 0;
 
         std::vector <std::vector<Block*>> grid = fifteen->Grid();
-
+        //setting offset
         if (x != fifteen->Size() - 1)
             if (grid[x + 1][y]->ID() == 16)dx = 1;
 
@@ -42,7 +42,7 @@ void wxImagePanel::mouseDown(wxMouseEvent& event)
         if (dx != 0 || dy != 0)
         {
             fifteen->Swap(grid[x][y], grid[x + dx][y + dy]);
-            emptyblock = grid[x][y];
+            emptyblock = grid[x][y]; //after the previous step, the pointers were swapped, so this block is now empty
             emptyblock->SetOffset(-dx * size, -dy * size);
             while (emptyblock->IsMoving) emptyblock->Move();
 
@@ -69,7 +69,7 @@ void wxImagePanel::render(wxDC& dc)
         for (int i = 0; i < fifteen->Size(); i++)
             for (int j = 0; j < fifteen->Size(); j++)
             {
-                if (fifteen->Grid()[i][j]->ID() == 16) continue;
+                if (fifteen->Grid()[i][j]->ID() == 16) continue; //empty block can be painted over a movable one if drawn later(need fix)
                 dc.DrawBitmap(fifteen->Grid()[i][j]->Bitmap(), fifteen->Grid()[i][j]->GetX(), fifteen->Grid()[i][j]->GetY(), false);
             }
 }

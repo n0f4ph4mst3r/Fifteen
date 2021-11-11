@@ -5,6 +5,8 @@ FifteenApp::FifteenApp(const wxString& title)
 {
     wxInitAllImageHandlers();
 
+    this->SetWindowStyle(wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX | wxMINIMIZE_BOX));
+
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
 
     drawPane = new wxImagePanel(this, wxT("..\\res\\workspace.png"), wxBITMAP_TYPE_PNG);

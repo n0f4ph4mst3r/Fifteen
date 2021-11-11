@@ -28,6 +28,7 @@ wxBitmap Block::Bitmap()
 	return bmp;
 }
 
+//use a SetOFfset() with non-null parameters before calling
 void Block::Move()
 {
 	if (x_offset == 0 && y_offset == 0)

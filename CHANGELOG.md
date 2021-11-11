@@ -1,4 +1,14 @@
-#### v0.2.0 (2021-11-02)
+### v0.3.0 (2021-11-02)
+
+##### Chores
+
+*  delete unused files ([b722ee4b](b722ee4b043776f27dba683869e09bbaee6f3cc5))
+
+##### New Features
+
+* **image-panel:**  blocks using render-timer now ([52ddecfc](https://github.com/n0f4ph4mst3r/Fifteen/commit/52ddecfcbc30f88e2cf5407353a77c185cfeeca3))
+
+### v0.2.0 (2021-11-02)
 
 ##### New Features
 

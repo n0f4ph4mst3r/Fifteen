@@ -9,112 +9,79 @@ END_EVENT_TABLE()
 wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
     wxPanel(parent), renderTimer(this, -1)
 {
-    source.LoadFile(file, format);
-
-    n = 1;
-
-            for (int i = 0; i < 4; i++)
-                for (int j = 0; j < 4; j++)
-        {
-            blocks.push_back(source.GetSubBitmap(wxRect(w * i, w * j, w, w)));
-            grid[i][j] = n;
-            n++;
-        }
+       fifteen = new Fifteen(file, format, 4);
 }
 
 void wxImagePanel::mouseDown(wxMouseEvent& event) 
 {
-    wxPoint pt = wxGetMousePosition();
-
-    int x = (pt.x - this->GetScreenPosition().x) / w;
-    int y = (pt.y - this->GetScreenPosition().y) / w;
-
-    int dx, dy;
-    dx = dy = 0;
-
-    if (grid[x + 1][y] == 16)dx = 1;
-    if (grid[x - 1][y] == 16)dx = -1;
-    if (grid[x][y + 1] == 16)dy = 1;
-    if (grid[x][y - 1] == 16)dy = -1;
-
-    if (dx != 0 || dy != 0)
+    if (!renderTimer.IsRunning())
     {
-        x1 = x;
-        x2 = x + dx;
-        y1 = y;
-        y2 = y + dy;
+        const wxPoint pt = wxGetMousePosition();
+        int size = fifteen->BlockSize();
 
-        x_pos = x * w;
-        y_pos = y * w;
+        int x = (pt.x - this->GetScreenPosition().x) / size;
+        int y = (pt.y - this->GetScreenPosition().y) / size;
 
-        this->dx = dx;
-        this->dy = dy;
+        int dx, dy;
+        dx = dy = 0;
 
-    n = grid[x][y];
-    renderTimer.Start(10);
+        std::vector <std::vector<Block*>> grid = fifteen->Grid();
+
+        if (x != fifteen->Size() - 1)
+            if (grid[x + 1][y]->ID() == 16)dx = 1;
+
+        if (x != 0)
+            if (grid[x - 1][y]->ID() == 16)dx = -1;
+
+        if (y != fifteen->Size() - 1)
+            if (grid[x][y + 1]->ID() == 16)dy = 1;
+
+        if (y != 0)
+            if (grid[x][y - 1]->ID() == 16)dy = -1;
+
+        if (dx != 0 || dy != 0)
+        {
+            fifteen->Swap(grid[x][y], grid[x + dx][y + dy]);
+            emptyblock = grid[x][y];
+            emptyblock->SetOffset(-dx * size, -dy * size);
+            while (emptyblock->IsMoving) emptyblock->Move();
+
+            int speed = 25;
+            movingblock = fifteen->Grid()[x + dx][y + dy];
+            movingblock->SetOffset(dx * speed, dy * speed);
+
+            renderTimer.Start(10);
+        }
     }
 }
 
 void wxImagePanel::paintEvent(wxPaintEvent& evt)
 {
-    wxBufferedPaintDC dc(this);
+    wxPaintDC dc(this);
     render(dc);
 }
 
 void wxImagePanel::render(wxDC& dc)
 {
-    static bool IsFirstRender = true;
-    if (IsFirstRender)
-    {
-        dc.SetBackground(*wxWHITE_BRUSH);
-        dc.DrawBitmap(source, 0, 0, false);
-        IsFirstRender = false;
-    }
-    else
-    {
-        int speed_x = (x2 - x1) * 25;
-        int speed_y = (y2 - y1) * 25;
+    dc.SetBackground(*wxWHITE_BRUSH);
+    dc.Clear();
 
-        int k = grid[x2][y2];
-
-        dc.DrawBitmap(blocks[k - 1], x_pos, y_pos, false);
-
-        x_pos += speed_x;
-        if ((x_pos > x2 * w && dx == 1) || (x_pos < x2*w && dx == -1))
-        {
-            x_pos = x2 * w;
-        }
-
-        y_pos += speed_y;
-        if ((y_pos > y2 * w && dy == 1) || (y_pos < y2*w && dy == -1))
-        {
-            y_pos = y2 * w;
-        }
-
-        dc.DrawBitmap(blocks[n-1], x_pos, y_pos, false);
-
-        if (x_pos == x2*w && y_pos == y2*w)
-        {
-            grid[x1][y1] = 16;
-            grid[x2][y2] = n;
-            renderTimer.Stop();
-        }
-    }
+        for (int i = 0; i < fifteen->Size(); i++)
+            for (int j = 0; j < fifteen->Size(); j++)
+            {
+                if (fifteen->Grid()[i][j]->ID() == 16) continue;
+                dc.DrawBitmap(fifteen->Grid()[i][j]->Bitmap(), fifteen->Grid()[i][j]->GetX(), fifteen->Grid()[i][j]->GetY(), false);
+            }
 }
 
 void wxImagePanel::RenderTimer(wxTimerEvent& event)
 {
-    wxClientDC dc_Client(this);
-    wxClientDC* Client;
-    Client = &dc_Client;
-    wxBufferedDC dc(Client, wxNullBitmap, wxBUFFER_CLIENT_AREA);
+    movingblock->Move();
+
+    wxClientDC client(this);
+    wxBufferedDC dc(&client, wxNullBitmap, wxBUFFER_CLIENT_AREA);
     render(dc);
+
+    if (!movingblock->IsMoving) renderTimer.Stop();
+
 }
- /*
- for (int i = 0; i < 4; i++)
-            for (int j = 0; j < 4; j++)
-            {
-                n = grid[i][j] - 1;
-                dc.DrawBitmap(blocks[n], w * i, w * j, false);
-            }
- */

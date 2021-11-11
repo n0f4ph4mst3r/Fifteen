@@ -1,3 +1,9 @@
+## v1.0.0 (2021-11-02)
+
+##### Other Changes
+
+* **image-panel:**  change render-algorithm ([41874aef](https://github.com/n0f4ph4mst3r/Fifteen/commit/41874aefbab157c07b8bbc7e65a535b1016e04fa))
+
 ## v1.0.0-alpha (2021-11-02)
 
 ##### New Features

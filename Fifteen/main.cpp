@@ -1,12 +1,12 @@
 #include "main.h"
-#include "fifteen.h"
+#include "FifteenApp.h"
 
 IMPLEMENT_APP(MyApp)
 
 bool MyApp::OnInit()
 {
-    Fifteen* fifteen = new Fifteen(wxT("Fifteen"));
-    fifteen->Show(true);
+    FifteenApp* app = new FifteenApp(wxT("Fifteen"));
+    app->Show(true);
 
     return true;
 }

@@ -7,15 +7,12 @@ BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)
 END_EVENT_TABLE()
 
 wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
-    wxPanel(parent), renderTimer(this, -1)
-{
+    wxPanel(parent), renderTimer(this, -1) {
        fifteen = new Fifteen(file, format, 4);
 }
 
-void wxImagePanel::mouseDown(wxMouseEvent& event) 
-{
-    if (!renderTimer.IsRunning())
-    {
+void wxImagePanel::mouseDown(wxMouseEvent& event) {
+    if (!renderTimer.IsRunning()) {
         const wxPoint pt = wxGetMousePosition();
         int size = fifteen->BlockSize();
 
@@ -39,8 +36,7 @@ void wxImagePanel::mouseDown(wxMouseEvent& event)
         if (y != 0)
             if (grid[x][y - 1]->ID() == 16)dy = -1;
 
-        if (dx != 0 || dy != 0)
-        {
+        if (dx != 0 || dy != 0) {
             fifteen->Swap(grid[x][y], grid[x + dx][y + dy]);
             emptyblock = grid[x][y]; //after the previous step, the pointers were swapped, so this block is now empty
             emptyblock->SetOffset(-dx * size, -dy * size);
@@ -55,27 +51,23 @@ void wxImagePanel::mouseDown(wxMouseEvent& event)
     }
 }
 
-void wxImagePanel::paintEvent(wxPaintEvent& evt)
-{
+void wxImagePanel::paintEvent(wxPaintEvent& evt) {
     wxPaintDC dc(this);
     render(dc);
 }
 
-void wxImagePanel::render(wxDC& dc)
-{
+void wxImagePanel::render(wxDC& dc) {
     dc.SetBackground(*wxWHITE_BRUSH);
     dc.Clear();
 
         for (int i = 0; i < fifteen->Size(); i++)
-            for (int j = 0; j < fifteen->Size(); j++)
-            {
+            for (int j = 0; j < fifteen->Size(); j++) {
                 if (fifteen->Grid()[i][j]->ID() == 16) continue; //empty block can be painted over a movable one if drawn later(need fix)
                 dc.DrawBitmap(fifteen->Grid()[i][j]->Bitmap(), fifteen->Grid()[i][j]->GetX(), fifteen->Grid()[i][j]->GetY(), false);
             }
 }
 
-void wxImagePanel::RenderTimer(wxTimerEvent& event)
-{
+void wxImagePanel::RenderTimer(wxTimerEvent& event) {
     movingblock->Move();
 
     wxClientDC client(this);
@@ -83,5 +75,4 @@ void wxImagePanel::RenderTimer(wxTimerEvent& event)
     render(dc);
 
     if (!movingblock->IsMoving) renderTimer.Stop();
-
 }

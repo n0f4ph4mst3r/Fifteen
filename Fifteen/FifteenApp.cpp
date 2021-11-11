@@ -1,8 +1,7 @@
 #include "FifteenApp.h"
 
 FifteenApp::FifteenApp(const wxString& title)
-    : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(528, 550))
-{
+    : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(528, 550)) {
     wxInitAllImageHandlers();
 
     this->SetWindowStyle(wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX | wxMINIMIZE_BOX));

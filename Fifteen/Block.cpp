@@ -1,38 +1,31 @@
 #include "Block.h"
 
-Block::Block(wxBitmap bmp, int id, int x, int y) 
-	: bmp(bmp), id(id), x_pos(x), y_pos(y), x_border(x_pos), y_border(y_pos)
-{
+Block::Block(wxBitmap bmp, int id, int x = 0, int y = 0) 
+	: bmp(bmp), id(id), x_pos(x), y_pos(y), x_border(x_pos), y_border(y_pos) {
 	x_offset = 0;
 	y_offset = 0;
 	IsMoving = false;
 }
 
-int Block::GetX()
-{
+int Block::GetX() {
 	return x_pos;
 }
 
-int Block::GetY()
-{
+int Block::GetY() {
 	return y_pos;
 }
 
-int Block::ID()
-{
+int Block::ID() {
 	return id;
 }
 
-wxBitmap Block::Bitmap()
-{
+wxBitmap Block::Bitmap() {
 	return bmp;
 }
 
 //use a SetOFfset() with non-null parameters before calling
-void Block::Move()
-{
-	if (x_offset == 0 && y_offset == 0)
-	{
+void Block::Move() {
+	if (x_offset == 0 && y_offset == 0) {
 		IsMoving = false;
 		x_border = x_pos;
 		y_border = y_pos;
@@ -42,21 +35,18 @@ void Block::Move()
 	x_pos += x_offset;
 	y_pos += y_offset;
 
-	if ((x_pos > x_border && x_offset > 0) || (x_pos < x_border && x_offset < 0))
-	{
+	if ((x_pos > x_border && x_offset > 0) || (x_pos < x_border && x_offset < 0)) {
 		x_pos = x_border;
 		x_offset = 0;
 	}
 
-	if ((y_pos > y_border && y_offset > 0) || (y_pos < y_border && y_offset < 0))
-	{
+	if ((y_pos > y_border && y_offset > 0) || (y_pos < y_border && y_offset < 0)) {
 		y_pos = y_border;
 		y_offset = 0;
 	}
 }
 
-void Block::SetOffset (int dx, int dy) 
-{
+void Block::SetOffset (int dx, int dy) {
 	x_offset = dx;
 	y_offset = dy;
 

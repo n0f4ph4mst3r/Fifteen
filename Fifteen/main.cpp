@@ -3,8 +3,7 @@
 
 IMPLEMENT_APP(MyApp)
 
-bool MyApp::OnInit()
-{
+bool MyApp::OnInit() {
     FifteenApp* app = new FifteenApp(wxT("Fifteen Puzzle"));
     app->Show(true);
 

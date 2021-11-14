@@ -151,14 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
     <ClCompile Include="Fifteen.cpp" />
     <ClCompile Include="FifteenApp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Block.h" />
     <ClInclude Include="Fifteen.h" />
     <ClInclude Include="FifteenApp.h" />
     <ClInclude Include="main.h" />

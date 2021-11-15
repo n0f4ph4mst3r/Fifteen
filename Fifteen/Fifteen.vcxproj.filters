@@ -38,7 +38,7 @@
     <ClInclude Include="wxImagePanel.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Fifteen.h">
+    <ClInclude Include="Puzzle.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

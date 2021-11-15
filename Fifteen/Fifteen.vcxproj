@@ -157,7 +157,7 @@
     <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Fifteen.h" />
+    <ClInclude Include="Puzzle.h" />
     <ClInclude Include="FifteenApp.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="wxImagePanel.h" />

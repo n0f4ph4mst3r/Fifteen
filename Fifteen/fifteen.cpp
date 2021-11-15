@@ -1,4 +1,4 @@
-#include "Fifteen.h"
+#include "Puzzle.h"
 
 Fifteen::Fifteen(wxString file, wxBitmapType format, const int sz) {
 	const static int size = sz;

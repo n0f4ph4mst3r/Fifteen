@@ -7,13 +7,13 @@
 #include <chrono>
 static unsigned int g_blockCounter = 0;
 
-//interface for block of puzzle
+//block of puzzle
 struct Block
 {
 	int id; //block number
 	int positionX, positionY; //actual block position
 	wxBitmap bmp; //block picture, using to draw on panel
-	wxPoint offset;
+	wxPoint offset; //using for movement
 	Block(wxBitmap bmp, int id = g_blockCounter, int x = 0, int y = 0) : bmp(bmp), id(id), positionX(x), positionY(y), offset(wxPoint()) {
 		g_blockCounter++;
 	}

@@ -8,7 +8,7 @@ END_EVENT_TABLE()
 
 wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
     wxPanel(parent), renderTimer(this, -1) {
-       fifteen = new Fifteen(file, format, 4);
+       fifteen = new Fifteen(file);
 }
 
 void wxImagePanel::mouseDown(wxMouseEvent& event) {

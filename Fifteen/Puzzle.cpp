@@ -1,10 +1,10 @@
 #include "Puzzle.h"
 
-Fifteen::Fifteen(wxString file, wxBitmapType format, const int sz) : sourcePath(file), sourceFormat(format), size(sz) {
+Puzzle::Puzzle(wxString file, wxBitmapType format, const int sz) : sourcePath(file), sourceFormat(format), size(sz) {
 	Refresh();
 }
 
-void Fifteen::Refresh() {
+void Puzzle::Refresh() {
 	wxBitmap source;
 	source.LoadFile(sourcePath, sourceFormat);
 	blockSize = source.GetWidth() / size;
@@ -61,21 +61,21 @@ void Fifteen::Refresh() {
 }
 
 //dont forget swap element in the grid, before block movement
-void Fifteen::Swap(Block* block1, Block* block2) {
+void Puzzle::Swap(Block* block1, Block* block2) {
 	Block tmp = *block1;
 	*block1 = *block2;
 	*block2 = tmp;
 }
 
-int Fifteen::BlockSize() {
+int Puzzle::BlockSize() {
 	return blockSize;
 }
 
-std::vector<std::vector <Block*>> Fifteen::Grid() {
+std::vector<std::vector <Block*>> Puzzle::Grid() {
 	return grid;
 }
 
-int Fifteen::Size() {
+int Puzzle::Size() {
 	return size;
 }
 

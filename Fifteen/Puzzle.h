@@ -24,7 +24,7 @@ struct Block
 
 //interface for puzzle
 //instance of class is a logical representation of the puzzle
-class Fifteen
+class Puzzle
 {
 	wxString sourcePath;
 	wxBitmapType sourceFormat;
@@ -33,7 +33,7 @@ class Fifteen
 	std::vector<std::vector <Block*>> grid;
 
 public:
-	Fifteen(wxString file, wxBitmapType format = wxBITMAP_TYPE_PNG, const int size = 4);
+	Puzzle(wxString file, wxBitmapType format = wxBITMAP_TYPE_PNG, const int size = 4);
 
 	void Refresh();
 	void Swap(Block* block1, Block* block2); 

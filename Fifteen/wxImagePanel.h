@@ -6,7 +6,7 @@
 class wxImagePanel : public wxPanel
 {
 	wxTimer renderTimer;
-	Fifteen* fifteen;
+	Puzzle* fifteen;
 	Block *movingblock, *emptyblock;
 public:
 	

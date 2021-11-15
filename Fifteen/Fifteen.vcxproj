@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Fifteen.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
     <ClCompile Include="FifteenApp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="wxImagePanel.cpp" />

@@ -152,13 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Puzzle.cpp" />
-    <ClCompile Include="FifteenApp.cpp" />
+    <ClCompile Include="PuzzleApp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="wxImagePanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Puzzle.h" />
-    <ClInclude Include="FifteenApp.h" />
+    <ClInclude Include="PuzzleApp.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="wxImagePanel.h" />
   </ItemGroup>

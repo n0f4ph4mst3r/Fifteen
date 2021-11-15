@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="FifteenApp.cpp">
+    <ClCompile Include="PuzzleApp.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="wxImagePanel.cpp">
@@ -32,7 +32,7 @@
     <ClInclude Include="main.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="FifteenApp.h">
+    <ClInclude Include="PuzzleApp.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="wxImagePanel.h">

@@ -1,5 +1,5 @@
 #include "main.h"
-#include "FifteenApp.h"
+#include "PuzzleApp.h"
 
 IMPLEMENT_APP(MyApp)
 

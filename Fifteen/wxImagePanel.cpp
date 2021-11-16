@@ -63,7 +63,7 @@ void wxImagePanel::render(wxDC& dc) {
         for (int i = 0; i < fifteen->Size(); i++)
             for (int j = 0; j < fifteen->Size(); j++) {
                 if (fifteen->Grid()[i][j]->id == 16) continue; //empty block can be painted over a movable one if drawn later(need fix)
-                dc.DrawBitmap(fifteen->Grid()[i][j]->bmp, fifteen->Grid()[i][j]->positionX, fifteen->Grid()[i][j]->positionY, false);
+                dc.DrawBitmap(wxBitmap(fifteen->Grid()[i][j]->blockImage), fifteen->Grid()[i][j]->positionX, fifteen->Grid()[i][j]->positionY, false);
             }
 }
 
@@ -80,8 +80,8 @@ void wxImagePanel::RenderTimer(wxTimerEvent& event) {
     int offsetY = movingblock->offset.y;
 
     if (movementStarted == false) {
-        int w = movingblock->bmp.GetWidth();
-        int h = movingblock->bmp.GetHeight();
+        int w = movingblock->blockImage.GetWidth();
+        int h = movingblock->blockImage.GetHeight();
 
         x_begin = x_pos;
         if (offsetX > 0) x_end = x_pos + w;

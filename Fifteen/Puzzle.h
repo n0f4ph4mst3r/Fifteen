@@ -12,9 +12,10 @@ struct Block
 {
 	int id; //block number
 	int positionX, positionY; //actual block position
-	wxBitmap bmp; //block picture, using to draw on panel
+	wxImage blockImage; //block picture, using to draw on panel
 	wxPoint offset; //using for movement
-	Block(wxBitmap bmp, int id = g_blockCounter, int x = 0, int y = 0) : bmp(bmp), id(id), positionX(x), positionY(y), offset(wxPoint()) {
+	Block(wxBitmap bmp, int id = g_blockCounter, int x = 0, int y = 0) : id(id), positionX(x), positionY(y), offset(wxPoint()) {
+		blockImage = bmp.ConvertToImage();
 		g_blockCounter++;
 	}
 	~Block() {

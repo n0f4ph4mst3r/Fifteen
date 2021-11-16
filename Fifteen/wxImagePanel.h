@@ -8,15 +8,17 @@ class wxImagePanel : public wxPanel
 	wxTimer renderTimer;
 	Puzzle* fifteen;
 	Block *movingblock, *emptyblock;
-public:
-	
-	wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format);
-	
+
 	void paintEvent(wxPaintEvent& evt);
 	void mouseDown(wxMouseEvent& event);
 	void RenderTimer(wxTimerEvent& event);
-	
+
 	void render(wxDC& dc);
 
 	DECLARE_EVENT_TABLE();
+
+public:
+	
+	wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format);
+
 };

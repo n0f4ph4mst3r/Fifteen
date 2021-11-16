@@ -1,3 +1,4 @@
+//declaration of class PuzzleApp
 #pragma once
 #include "wxImagePanel.h"
 //build the application here

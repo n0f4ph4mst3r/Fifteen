@@ -1,3 +1,4 @@
+//implementation of class Puzzle
 #include "Puzzle.h"
 
 Puzzle::Puzzle(wxString file, wxBitmapType format, const int sz) : sourcePath(file), sourceFormat(format), size(sz) {

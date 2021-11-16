@@ -1,3 +1,4 @@
+//implemetation of class PuzzleApp
 #include "PuzzleApp.h"
 
 FifteenApp::FifteenApp(const wxString& title)

@@ -1,3 +1,4 @@
+//implementation of class wxImagePanel
 #include "wxImagePanel.h"
 
 BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)

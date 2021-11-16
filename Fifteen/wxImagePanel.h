@@ -1,10 +1,10 @@
+//declaration of class wxImagePanel
+//this panel using for render
 #pragma once
 #include <wx/dcbuffer.h>
 #include "Puzzle.h"
 
-//wxPanel for render
-class wxImagePanel : public wxPanel
-{
+class wxImagePanel : public wxPanel {
 	wxTimer renderTimer;
 	Puzzle* fifteen;
 	Block *movingblock, *emptyblock;
@@ -18,7 +18,5 @@ class wxImagePanel : public wxPanel
 	DECLARE_EVENT_TABLE();
 
 public:
-	
 	wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format);
-
 };

@@ -27,6 +27,7 @@ struct Block {
 
 //this class is a logical representation of the puzzle
 class Puzzle {
+	wxImage source;
 	wxString sourcePath;
 	wxBitmapType sourceFormat;
 
@@ -34,6 +35,7 @@ class Puzzle {
 	std::vector<std::vector <Block*>> grid;
 
 public:
+	Puzzle();
 	Puzzle(wxString file, wxBitmapType format = wxBITMAP_TYPE_PNG, const int size = 4);
 
 	void Refresh();

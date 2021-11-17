@@ -1,13 +1,25 @@
 //implementation of class Puzzle
 #include "Puzzle.h"
 
+Puzzle::Puzzle() : size(4) {
+	wxBitmap* bmp = new wxBitmap(512, 512, 1);
+
+	wxMemoryDC* dc = new wxMemoryDC(*bmp);
+	dc->SetPen(*wxWHITE_PEN);
+	dc->SetBrush(*wxWHITE_BRUSH);
+
+	wxRect recToDraw(0, 0, 512, 512);
+	dc->DrawRectangle(recToDraw);
+
+	source = bmp->ConvertToImage();
+}
+
 Puzzle::Puzzle(wxString file, wxBitmapType format, const int sz) : sourcePath(file), sourceFormat(format), size(sz) {
+	source.LoadFile(sourcePath, sourceFormat);
 	Refresh();
 }
 
 void Puzzle::Refresh() {
-	wxBitmap source;
-	source.LoadFile(sourcePath, sourceFormat);
 	blockSize = source.GetWidth() / size;
 
 	bool gen_done = false;
@@ -56,7 +68,7 @@ void Puzzle::Refresh() {
 			x = (row[step] % size) * blockSize;
 			y = (row[step] / size) * blockSize;
 
-			grid[i][j] = new Block(source.GetSubBitmap(wxRect(x, y, blockSize, blockSize)), row[step] + 1, i * blockSize, j * blockSize);
+			grid[i][j] = new Block(wxBitmap(source).GetSubBitmap(wxRect(x, y, blockSize, blockSize)), row[step] + 1, i * blockSize, j * blockSize);
 			step++;
 		}
 }

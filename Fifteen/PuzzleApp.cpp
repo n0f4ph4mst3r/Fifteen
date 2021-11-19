@@ -1,6 +1,7 @@
-#include "FifteenApp.h"
+//implemetation of class PuzzleApp
+#include "PuzzleApp.h"
 
-FifteenApp::FifteenApp(const wxString& title)
+PuzzleApp::PuzzleApp(const wxString& title)
     : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(528, 550)) {
     wxInitAllImageHandlers();
 

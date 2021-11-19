@@ -1,3 +1,4 @@
+//implementation of class wxImagePanel
 #include "wxImagePanel.h"
 
 BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)
@@ -8,7 +9,7 @@ END_EVENT_TABLE()
 
 wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
     wxPanel(parent), renderTimer(this, -1) {
-       fifteen = new Fifteen(file, format, 4);
+       fifteen = new Puzzle(file);
 }
 
 void wxImagePanel::mouseDown(wxMouseEvent& event) {
@@ -25,26 +26,26 @@ void wxImagePanel::mouseDown(wxMouseEvent& event) {
         std::vector <std::vector<Block*>> grid = fifteen->Grid();
         //setting offset
         if (x != fifteen->Size() - 1)
-            if (grid[x + 1][y]->ID() == 16)dx = 1;
+            if (grid[x + 1][y]->id == 16)dx = 1;
 
         if (x != 0)
-            if (grid[x - 1][y]->ID() == 16)dx = -1;
+            if (grid[x - 1][y]->id == 16)dx = -1;
 
         if (y != fifteen->Size() - 1)
-            if (grid[x][y + 1]->ID() == 16)dy = 1;
+            if (grid[x][y + 1]->id == 16)dy = 1;
 
         if (y != 0)
-            if (grid[x][y - 1]->ID() == 16)dy = -1;
+            if (grid[x][y - 1]->id == 16)dy = -1;
 
         if (dx != 0 || dy != 0) {
             fifteen->Swap(grid[x][y], grid[x + dx][y + dy]);
             emptyblock = grid[x][y]; //after the previous step, the pointers were swapped, so this block is now empty
-            emptyblock->SetOffset(-dx * size, -dy * size);
-            while (emptyblock->IsMoving) emptyblock->Move();
+            emptyblock->positionX = -dx * size;
+            emptyblock->positionY = -dy * size;
 
-            int speed = 25;
             movingblock = fifteen->Grid()[x + dx][y + dy];
-            movingblock->SetOffset(dx * speed, dy * speed);
+            movingblock->offset.x = dx;
+            movingblock->offset.y = dy;
 
             renderTimer.Start(10);
         }
@@ -62,17 +63,61 @@ void wxImagePanel::render(wxDC& dc) {
 
         for (int i = 0; i < fifteen->Size(); i++)
             for (int j = 0; j < fifteen->Size(); j++) {
-                if (fifteen->Grid()[i][j]->ID() == 16) continue; //empty block can be painted over a movable one if drawn later(need fix)
-                dc.DrawBitmap(fifteen->Grid()[i][j]->Bitmap(), fifteen->Grid()[i][j]->GetX(), fifteen->Grid()[i][j]->GetY(), false);
+                if (fifteen->Grid()[i][j]->id == 16) continue; //empty block can be painted over a movable one if drawn later(need fix)
+                dc.DrawBitmap(wxBitmap(fifteen->Grid()[i][j]->blockImage), fifteen->Grid()[i][j]->positionX, fifteen->Grid()[i][j]->positionY, false);
             }
 }
 
 void wxImagePanel::RenderTimer(wxTimerEvent& event) {
-    movingblock->Move();
+    static int x_begin;
+    static int x_end;
+    static int y_begin;
+    static int y_end;
+    static bool movementStarted = false;
+
+    int x_pos = movingblock->positionX;
+    int y_pos = movingblock->positionY;
+    int offsetX = movingblock->offset.x;
+    int offsetY = movingblock->offset.y;
+
+    if (movementStarted == false) {
+        int w = movingblock->blockImage.GetWidth();
+        int h = movingblock->blockImage.GetHeight();
+
+        x_begin = x_pos;
+        if (offsetX > 0) x_end = x_pos + w;
+        else if (offsetX < 0) x_end = x_pos - w;
+        else x_end = x_begin;
+
+        y_begin = y_pos;
+        if (offsetY > 0)  y_end = y_pos + h;
+        else if (offsetY < 0) y_end = y_pos - h;
+        else y_end = y_begin;
+
+        movementStarted = true;
+    }
+
+    static int speed = 25;
+    x_pos += offsetX * speed;
+    y_pos += offsetY * speed;
+
+    if ((x_pos > x_end && offsetX > 0) || (x_pos < x_end && offsetX < 0) || (x_pos != 0 && offsetX == 0))
+        x_pos = x_end;
+
+    if ((y_pos > y_end && offsetY > 0) || (y_pos < y_end && offsetY < 0) || (y_pos != 0 && offsetY == 0))
+        y_pos = y_end;
+
+    movingblock->positionX = x_pos;
+    movingblock->positionY = y_pos;
 
     wxClientDC client(this);
     wxBufferedDC dc(&client, wxNullBitmap, wxBUFFER_CLIENT_AREA);
     render(dc);
 
-    if (!movingblock->IsMoving) renderTimer.Stop();
+    if (x_pos == x_end && y_pos == y_end) {
+        movementStarted = false;
+        movingblock->offset = wxPoint();
+
+        renderTimer.Stop();
+    }
 }

@@ -1,5 +1,5 @@
 aaaaaaaa ICON "..\\res\\images\\app_icon.ico"
 
-BACKGROUND PNG "..\\res\\images\\workspace.png"
+BACKGROUND RCDATA "..\\res\\images\\workspace.png"
 
 #include "wx/msw/wx.rc"

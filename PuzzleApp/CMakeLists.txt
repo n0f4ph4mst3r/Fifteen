@@ -6,7 +6,7 @@ set(HEADERS headers/main.h
 			headers/PuzzleApp.h 
 			)	
 			
-set(RESOURCES res/app_icon.rc)
+set(RESOURCES res/image_resources.rc)
 
 add_executable(PuzzleApp WIN32
                           ${SOURCE_FILES} 

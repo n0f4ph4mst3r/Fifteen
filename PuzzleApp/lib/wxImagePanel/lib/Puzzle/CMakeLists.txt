@@ -11,6 +11,3 @@ target_sources(Puzzle
 target_include_directories(Puzzle PUBLIC headers)
 target_link_libraries(Puzzle ${CONAN_LIBS})
 
-enable_testing()
-add_subdirectory(tests)
-add_dependencies(Tests Puzzle)

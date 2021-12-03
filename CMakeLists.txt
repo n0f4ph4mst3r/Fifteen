@@ -15,5 +15,16 @@ conan_basic_setup()
 
 add_subdirectory(PuzzleApp)
 
+if( CMAKE_GENERATOR MATCHES "Visual Studio" )
+   set_directory_properties(
+      PROPERTIES
+         VS_STARTUP_PROJECT PuzzleApp
+   )
+endif()
+
+enable_testing()
+add_subdirectory(tests)
+add_dependencies(Tests PuzzleApp)
+
 
 

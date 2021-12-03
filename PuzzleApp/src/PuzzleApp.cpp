@@ -9,7 +9,7 @@ PuzzleApp::PuzzleApp(const wxString& title)
 
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
 
-    drawPane = new wxImagePanel(this, wxT("..\\res\\workspace.png"), wxBITMAP_TYPE_PNG);
+    drawPane = new wxImagePanel(this, new wxBitmap(wxBITMAP_PNG(BACKGROUND)));
     sizer->Add(drawPane, 1, wxEXPAND);
 
     this->SetSizer(sizer);

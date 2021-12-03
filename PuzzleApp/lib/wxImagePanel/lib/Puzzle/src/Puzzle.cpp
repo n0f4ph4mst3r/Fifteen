@@ -14,8 +14,7 @@ Puzzle::Puzzle() : size(4) {
 	source = bmp->ConvertToImage();
 }
 
-Puzzle::Puzzle(wxString file, wxBitmapType format, const int sz) : sourcePath(file), sourceFormat(format), size(sz) {
-	source.LoadFile(sourcePath, sourceFormat);
+Puzzle::Puzzle(wxBitmap* source, const int sz) : source(source->ConvertToImage()), size(sz) {
 	Refresh();
 }
 

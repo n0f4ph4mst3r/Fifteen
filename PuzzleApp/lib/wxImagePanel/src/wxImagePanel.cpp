@@ -7,9 +7,9 @@ BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)
     EVT_TIMER(-1, wxImagePanel::RenderTimer)
 END_EVENT_TABLE()
 
-wxImagePanel::wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format) :
+wxImagePanel::wxImagePanel(wxFrame* parent, wxBitmap* background) :
     wxPanel(parent), renderTimer(this, -1) {
-       fifteen = new Puzzle(file);
+       fifteen = new Puzzle(background);
 }
 
 void wxImagePanel::mouseDown(wxMouseEvent& event) {

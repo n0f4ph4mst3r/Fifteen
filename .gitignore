@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /package-lock.json
 /package.json
+
+# Ignore build directory
+build/

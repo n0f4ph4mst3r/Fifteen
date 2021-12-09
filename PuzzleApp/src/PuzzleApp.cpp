@@ -1,6 +1,11 @@
 //implemetation of class PuzzleApp
 #include "PuzzleApp.h"
 
+#if defined(__WXGTK__) || defined(__WXMOTIF__)
+#include "aaaaaaaa_logo.XPM"
+#include "BACKGROUND.h"
+#endif
+
 PuzzleApp::PuzzleApp(const wxString& title)
     : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(528, 550)) {
     wxInitAllImageHandlers();
@@ -14,7 +19,7 @@ PuzzleApp::PuzzleApp(const wxString& title)
 
     this->SetSizer(sizer);
 
-    SetIcon(wxICON(aaaaaaaa));
+    SetIcon(wxICON(aaaaaaaa_logo));
 
     Centre();
 }

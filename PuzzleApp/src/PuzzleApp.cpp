@@ -7,7 +7,7 @@
 #endif
 
 PuzzleApp::PuzzleApp(const wxString& title)
-    : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(528, 550)) {
+    : wxFrame(NULL, wxID_ANY, title) {
     wxInitAllImageHandlers();
 
     this->SetWindowStyle(wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX | wxMINIMIZE_BOX));
@@ -17,7 +17,7 @@ PuzzleApp::PuzzleApp(const wxString& title)
     drawPane = new wxImagePanel(this, new wxBitmap(wxBITMAP_PNG(BACKGROUND)));
     sizer->Add(drawPane, 1, wxEXPAND);
 
-    this->SetSizer(sizer);
+    SetSizerAndFit(sizer);
 
     SetIcon(wxICON(aaaaaaaa_logo));
 

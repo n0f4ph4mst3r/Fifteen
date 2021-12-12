@@ -10,5 +10,3 @@ target_sources(wxImagePanel
               )
 			 
 target_include_directories(wxImagePanel PUBLIC headers)
-add_subdirectory(lib/Puzzle)
-target_link_libraries(wxImagePanel Puzzle)

@@ -1,4 +1,4 @@
-aaaaaaaa ICON "..\\res\\images\\app_icon.ico"
+aaaaaaaa_logo ICON "..\\res\\images\\app_icon.ico"
 
 BACKGROUND RCDATA "..\\res\\images\\workspace.png"
 

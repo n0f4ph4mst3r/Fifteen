@@ -1,20 +1,38 @@
+## v2.0.0-alpha-0.1.0 (2021-12-12)
+
+##### Bug Fixes
+
+*  correct wxFrame size ([9c28faf9](https://github.com/n0f4ph4mst3r/Fifteen/commit/9c28faf9))
+* **image_resources.rc:**  rename icon file (from aaaaaaaaa to aaaaaaaa_logo) ([28717e3b](https://github.com/n0f4ph4mst3r/Fifteen/commit/28717e3b))
+
+##### Other Changes
+
+* **PuzzleTests:**  remove Llabel-argument from asserts ([14d1b2f0](https://github.com/n0f4ph4mst3r/Fifteen/commit/14d1b2f0))
+*  edit CMakeLists.txt ([35cb9b6d](https://github.com/n0f4ph4mst3r/Fifteen/commit/35cb9b6d))
+*  add aaaaaaa_logo.XPM ([3a69fae9](https://github.com/n0f4ph4mst3r/Fifteen/commit/3a69fae9))
+* **BACKGROUND.png:**  add converted header ([88ab323e](https://github.com/n0f4ph4mst3r/Fifteen/commit/88ab323e))
+
+##### Refactors
+
+* **PuzzleApp.cpp:**  include aaaaaaa_logo.XPM and BACKGROUND.h ([41a59939](https://github.com/n0f4ph4mst3r/Fifteen/commit/41a59939))
+
 ## v2.0.0-alpha (2021-12-12)
 
 ##### Chores
 
 *  rename app_icon to image_resources ([c3729e51](https://github.com/n0f4ph4mst3r/Fifteen/commit/c3729e51))
-*  repurpose Visual Studio Project to CMake ([5bf704ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/))
+*  repurpose Visual Studio Project to CMake ([5bf704ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/5bf704ec))
 
 ##### Other Changes
 
-*  edit CMakeLists files ([bead9392]())
-*  change directory of tests ([a73ee237]())
+*  edit CMakeLists files ([bead9392](https://github.com/n0f4ph4mst3r/Fifteen/commit/bead9392))
+*  change directory of tests ([a73ee237](https://github.com/n0f4ph4mst3r/Fifteen/commit/a73ee237))
 * **app_icon:**  add new resource(BACKGROUND) ([caee7b06](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
 
 ##### Refactors
 
-* **wxImagePanel:**  change constructor parameters ([4ab9f8ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
-* **Puzzle:**  change constructor parameters ([03753723](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
+* **wxImagePanel:**  change constructor parameters ([4ab9f8ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/4ab9f8ec))
+* **Puzzle:**  change constructor parameters ([03753723](https://github.com/n0f4ph4mst3r/Fifteen/commit/03753723))
 
 ### v1.2.0 (2021-11-22)
 

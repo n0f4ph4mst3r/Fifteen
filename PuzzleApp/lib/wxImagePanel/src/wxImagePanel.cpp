@@ -8,7 +8,7 @@ BEGIN_EVENT_TABLE(wxImagePanel, wxPanel)
 END_EVENT_TABLE()
 
 wxImagePanel::wxImagePanel(wxFrame* parent, wxBitmap* background) :
-    wxPanel(parent), renderTimer(this, -1) {
+    wxPanel(parent, -1, wxDefaultPosition, wxSize(512, 512)), renderTimer(this, -1) {
        fifteen = new Puzzle(background);
 }
 

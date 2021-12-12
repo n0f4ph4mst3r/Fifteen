@@ -1,3 +1,21 @@
+## v2.0.0-alpha (2021-12-12)
+
+##### Chores
+
+*  rename app_icon to image_resources ([c3729e51](https://github.com/n0f4ph4mst3r/Fifteen/commit/c3729e51))
+*  repurpose Visual Studio Project to CMake ([5bf704ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/))
+
+##### Other Changes
+
+*  edit CMakeLists files ([bead9392]())
+*  change directory of tests ([a73ee237]())
+* **app_icon:**  add new resource(BACKGROUND) ([caee7b06](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
+
+##### Refactors
+
+* **wxImagePanel:**  change constructor parameters ([4ab9f8ec](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
+* **Puzzle:**  change constructor parameters ([03753723](https://github.com/n0f4ph4mst3r/Fifteen/commit/caee7b06))
+
 ### v1.2.0 (2021-11-22)
 
 ##### Chores
@@ -9,10 +27,6 @@
 *  delete unused files ([728f84e1](https://github.com/n0f4ph4mst3r/Fifteen/commit/728f84e1))
 *  bump language standard (from 14 to 20) ([c0ba6f6e](https://github.com/n0f4ph4mst3r/Fifteen/commit/c0ba6f6e))
 * **.gitignore:**  update ([a59d36da](https://github.com/n0f4ph4mst3r/Fifteen/commit/a59d36da))
-
-##### Documentation Changes
-
-* **CHANGELOG.md:**  update changelog ([8341ed38](https://github.com/n0f4ph4mst3r/Fifteen/commit/8341ed38))
 
 ##### Refactors
 

@@ -28,15 +28,13 @@ struct Block {
 //this class is a logical representation of the puzzle
 class Puzzle {
 	wxImage source;
-	wxString sourcePath;
-	wxBitmapType sourceFormat;
 
 	int size, blockSize;
 	std::vector<std::vector <Block*>> grid;
 
 public:
 	Puzzle();
-	Puzzle(wxString file, wxBitmapType format = wxBITMAP_TYPE_PNG, const int size = 4);
+	Puzzle(wxBitmap* source, const int size = 4);
 
 	void Refresh();
 	void Swap(Block* block1, Block* block2); 

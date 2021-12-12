@@ -18,5 +18,5 @@ class wxImagePanel : public wxPanel {
 	DECLARE_EVENT_TABLE();
 
 public:
-	wxImagePanel(wxFrame* parent, wxString file, wxBitmapType format);
+	wxImagePanel(wxFrame* parent, wxBitmap* background);
 };

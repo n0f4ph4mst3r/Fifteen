@@ -19,7 +19,7 @@ TEST_F(RefreshTests, Refresh_ByDefault_Size)
 {
 	const int sizeExpected = 4;
 
-	ASSERT_EQ(sizeExpected, testingPuzzle->Size(), L"Invlaid size");
+	ASSERT_EQ(sizeExpected, testingPuzzle->Size());
 }
 TEST_F(RefreshTests, Refresh_ByDefault_GridSize)
 {
@@ -31,8 +31,8 @@ TEST_F(RefreshTests, Refresh_ByDefault_GridSize)
 	for (int i = 0; i < 4; i++)
 		if (sizeExpected != testingPuzzle->Grid()[i].size()) widthIsCorrect = false;
 
-	ASSERT_TRUE(heightIsCorrect, L"Expected result does not match height of grid");
-	ASSERT_TRUE(widthIsCorrect, L"Expected result does not match width of grid");
+	ASSERT_TRUE(heightIsCorrect);
+	ASSERT_TRUE(widthIsCorrect);
 }
 
 TEST_F(RefreshTests, Refresh_ByDefault_NumbersInSequence)
@@ -47,8 +47,8 @@ TEST_F(RefreshTests, Refresh_ByDefault_NumbersInSequence)
 		}
 	}
 
-	ASSERT_EQ((int)row.size(), 16, L"Invalid quantity of blocks");
-	ASSERT_EQ(sum, 136, L"Incorrect sequence");
+	ASSERT_EQ((int)row.size(), 16);
+	ASSERT_EQ(sum, 136);
 }
 
 TEST_F(RefreshTests, Refresh_ByDefault_EvenCombination)
@@ -64,5 +64,5 @@ TEST_F(RefreshTests, Refresh_ByDefault_EvenCombination)
 		}
 	if (sum % 2 != 0) IsEven = false;
 
-	ASSERT_TRUE(IsEven, L"Odd sequence");
+	ASSERT_TRUE(IsEven);
 }

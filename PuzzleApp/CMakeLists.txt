@@ -11,6 +11,8 @@ set(RESOURCES res/image_resources.rc)
 
 set(XPM res/xpm/aaaaaaaa_logo.XPM)
 
+set(PNG res/images/workspace.png)
+
 if(WIN32)
 add_executable(PuzzleApp WIN32)
 target_sources(PuzzleApp PRIVATE ${RESOURCES})
@@ -25,6 +27,14 @@ target_sources(PuzzleApp PRIVATE
 						  ${XPM}
 	          )		  
 source_group("XPM files" FILES ${XPM})
+
+if(APPLE)
+target_sources(PuzzleApp PRIVATE ${PNG})
+set_target_properties(PuzzleApp PROPERTIES
+  MACOSX_BUNDLE TRUE
+  MACOSX_FRAMEWORK_IDENTIFIER org.cmake.PuzzleApp
+  RESOURCE "${PNG}")
+endif()
 
 target_include_directories(PuzzleApp PUBLIC headers res/xpm res/headers)
 

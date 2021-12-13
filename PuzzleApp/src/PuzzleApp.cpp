@@ -1,8 +1,11 @@
 //implemetation of class PuzzleApp
 #include "PuzzleApp.h"
 
-#if defined(__WXGTK__) || defined(__WXMOTIF__)
+#if defined(__WXDFB__) || defined(__WXGTK__) || defined(__WXMAC__) || defined(__WXMOTIFF__) || defined(__WX11__) || defined(__WXQT__)
 #include "aaaaaaaa_logo.XPM"
+#endif
+
+#if !(defined(__WINDOWS__) && wxUSE_WXDIB) && !defined(__WXOSX__)
 #include "BACKGROUND.h"
 #endif
 

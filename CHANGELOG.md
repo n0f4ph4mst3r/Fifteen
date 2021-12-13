@@ -1,4 +1,15 @@
-## v2.0.0-alpha-0.1.0 (2021-12-12)
+### v2.0.0-alpha-0.2.0 (2021-12-13)
+
+##### Chores
+
+* **CMakeLists.txt:**  add PNG-resource for MacOS ([9e69b7d0](https://github.com/n0f4ph4mst3r/Fifteen/commit/9e69b7d0))
+*  reorganize the project structure ([45e6557c](https://github.com/n0f4ph4mst3r/Fifteen/commit/45e6557c))
+
+##### Bug Fixes
+
+* **PuzzleApp.cpp:**  fix preprocessor directives ([f65f014b](https://github.com/n0f4ph4mst3r/Fifteen/commit/f65f014b))
+
+### v2.0.0-alpha-0.1.0 (2021-12-12)
 
 ##### Bug Fixes
 

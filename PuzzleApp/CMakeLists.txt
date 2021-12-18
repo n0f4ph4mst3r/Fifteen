@@ -11,7 +11,7 @@ set(RESOURCES res/image_resources.rc)
 
 set(XPM res/xpm/aaaaaaaa_logo.XPM)
 
-set(PNG res/images/workspace.png)
+set(PNG res/images/BACKGROUND.png)
 
 if(WIN32)
 add_executable(PuzzleApp WIN32)

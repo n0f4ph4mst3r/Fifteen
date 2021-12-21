@@ -366,3 +366,5 @@ FodyWeavers.xsd
 
 # Ignore build directory
 build/
+debug/
+release/

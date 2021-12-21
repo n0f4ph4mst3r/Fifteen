@@ -2,19 +2,19 @@
 #include "Puzzle.h"
 
 Puzzle::Puzzle() : size(4) {
-	wxBitmap* bmp = new wxBitmap(512, 512, 1);
+	wxBitmap bmp(512, 512, 1);
 
-	wxMemoryDC* dc = new wxMemoryDC(*bmp);
-	dc->SetPen(*wxWHITE_PEN);
-	dc->SetBrush(*wxWHITE_BRUSH);
+	wxMemoryDC dc(bmp);
+	dc.SetPen(*wxWHITE_PEN);
+	dc.SetBrush(*wxWHITE_BRUSH);
 
 	wxRect recToDraw(0, 0, 512, 512);
-	dc->DrawRectangle(recToDraw);
+	dc.DrawRectangle(recToDraw);
 
-	source = bmp->ConvertToImage();
+	source = bmp.ConvertToImage();
 }
 
-Puzzle::Puzzle(wxBitmap* source, const int sz) : source(source->ConvertToImage()), size(sz) {
+Puzzle::Puzzle(wxBitmap& source, const int sz) : source(source.ConvertToImage()), size(sz) {
 	Refresh();
 }
 
@@ -63,27 +63,19 @@ void Puzzle::Refresh() {
 
 	for (int i = 0; i < size; i++)
 		for (int j = 0; j < size; j++) {
-
 			x = (row[step] % size) * blockSize;
 			y = (row[step] / size) * blockSize;
 
-			grid[i][j] = new Block(wxBitmap(source).GetSubBitmap(wxRect(x, y, blockSize, blockSize)), row[step] + 1, i * blockSize, j * blockSize);
+			grid[i][j] = std::make_shared<Block>(wxBitmap(source).GetSubBitmap(wxRect(x, y, blockSize, blockSize)), row[step] + 1, i * blockSize, j * blockSize);
 			step++;
 		}
-}
-
-//dont forget swap element in the grid, before block movement
-void Puzzle::Swap(Block* block1, Block* block2) {
-	Block tmp = *block1;
-	*block1 = *block2;
-	*block2 = tmp;
 }
 
 int Puzzle::BlockSize() {
 	return blockSize;
 }
 
-std::vector<std::vector <Block*>> Puzzle::Grid() {
+PuzzleGrid Puzzle::Grid() {
 	return grid;
 }
 

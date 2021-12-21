@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <memory> 
 static unsigned int g_blockCounter = 0;
 
 //block of puzzle
@@ -15,7 +16,8 @@ struct Block {
 	wxImage blockImage; //block picture, using to draw on panel
 	wxPoint offset; //using for movement
 
-	Block(wxBitmap bmp, int id = g_blockCounter, int x = 0, int y = 0) : id(id), positionX(x), positionY(y), offset(wxPoint()) {
+	Block(wxBitmap bmp, const int id = g_blockCounter, const int x = 0, const int y = 0) 
+		: id(id), positionX(x), positionY(y), offset(wxPoint(0,0)) {
 		blockImage = bmp.ConvertToImage();
 		g_blockCounter++;
 	}
@@ -26,21 +28,23 @@ struct Block {
 };
 
 //this class is a logical representation of the puzzle
+using BlockPtr = std::shared_ptr<Block>;
+using PuzzleGrid = std::vector<std::vector <BlockPtr>>;
+
 class Puzzle {
 	wxImage source;
 
 	int size, blockSize;
-	std::vector<std::vector <Block*>> grid;
+	PuzzleGrid grid;
 
 public:
 	Puzzle();
-	Puzzle(wxBitmap* source, const int size = 4);
+	Puzzle(wxBitmap& source, const int size = 4);
 
 	void Refresh();
-	void Swap(Block* block1, Block* block2); 
 
 	int BlockSize();
-	std::vector<std::vector <Block*>> Grid();
+	PuzzleGrid Grid();
 	int Size();
 };
 

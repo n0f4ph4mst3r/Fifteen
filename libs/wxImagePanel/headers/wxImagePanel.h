@@ -4,10 +4,11 @@
 #include <wx/dcbuffer.h>
 #include "Puzzle.h"
 
+
 class wxImagePanel : public wxPanel {
+	std::unique_ptr<Puzzle> fifteen;
+	BlockPtr movingblock;
 	wxTimer renderTimer;
-	Puzzle* fifteen;
-	Block *movingblock, *emptyblock;
 
 	void paintEvent(wxPaintEvent& evt);
 	void mouseDown(wxMouseEvent& event);

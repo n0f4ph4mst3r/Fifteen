@@ -1,3 +1,26 @@
+### v2.0.0-beta (2021-12-22)
+
+##### Chores
+
+* **CMakeLists.txt:**  change the installation method dependencies ([5a547a74](https://github.com/n0f4ph4mst3r/Fifteen/commit/5a547a74))
+
+##### Documentation Changes
+
+* **.gitignore:**  add new directories: 'debug/' and 'release/' ([9d5873d5](https://github.com/n0f4ph4mst3r/Fifteen/commit/[9d5873d5]))
+*  add BUILDING.md ([3e760df4](https://github.com/n0f4ph4mst3r/Fifteen/commit/[3e760df4]))
+*  add README.md ([d3d7b202](https://github.com/n0f4ph4mst3r/Fifteen/commit/[d3d7b202]))
+
+##### Other Changes
+
+*  rename 'lib' directory to 'modules' ([dca300c9](https://github.com/n0f4ph4mst3r/Fifteen/commit/[dca300c9]))
+*  rename workspace.png to BACKGROUND.png ([7cffa2b6](https://github.com/n0f4ph4mst3r/Fifteen/commit/[7cffa2b6]))
+* **.gitattributes:**  update .gitattributes ([f09c4525](https://github.com/n0f4ph4mst3r/Fifteen/commit/[f09c4525]))
+
+##### Performance Improvements
+
+*  optimized animation work due to the use of smart pointers ([296c9df9](https://github.com/n0f4ph4mst3r/Fifteen/commit/296c9df9])
+
+
 ### v2.0.0-alpha-0.2.0 (2021-12-13)
 
 ##### Chores

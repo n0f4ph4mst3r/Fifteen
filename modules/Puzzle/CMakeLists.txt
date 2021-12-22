@@ -6,8 +6,7 @@ add_library(Puzzle)
 target_sources(Puzzle
   PRIVATE
     ${SOURCE_FILES} 
-	${HEADERS} 
-              )
+	${HEADERS})
 target_include_directories(Puzzle PUBLIC headers)
 
 

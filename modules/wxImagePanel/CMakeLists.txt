@@ -6,7 +6,6 @@ add_library(wxImagePanel)
 target_sources(wxImagePanel
   PRIVATE
     ${SOURCE_FILES} 
-	${HEADERS} 
-              )
+	${HEADERS})
 			 
 target_include_directories(wxImagePanel PUBLIC headers)

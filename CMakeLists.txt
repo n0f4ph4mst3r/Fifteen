@@ -21,12 +21,12 @@ if( CMAKE_GENERATOR MATCHES "Visual Studio" )
    )
 endif()
 
-add_subdirectory(libs/Puzzle)
-target_link_libraries(Puzzle ${CONAN_LIBS})
+add_subdirectory(modules/Puzzle)
+conan_target_link_libraries(Puzzle)
 target_compile_features(Puzzle PUBLIC cxx_std_20)
 target_compile_options(Puzzle PUBLIC -Wall -O2)
 
-add_subdirectory(libs/wxImagePanel)
+add_subdirectory(modules/wxImagePanel)
 target_link_libraries(wxImagePanel Puzzle)
 target_link_libraries(PuzzleApp wxImagePanel)
 

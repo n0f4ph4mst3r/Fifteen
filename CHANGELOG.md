@@ -1,3 +1,13 @@
+#### v2.0.0-beta-0.1.0 (2021-12-24)
+
+##### Chores
+
+* **CMakeLists.txt:**  add conan-instalation options ([8d97f977](https://github.com/n0f4ph4mst3r/Fifteen/commit/8d97f977))
+
+##### Documentation Changes
+
+* **BUILDING.md:**  update BUILDING.md ([b3a96225](https://github.com/n0f4ph4mst3r/Fifteen/commit/b3a96225))
+
 ### v2.0.0-beta (2021-12-22)
 
 ##### Chores

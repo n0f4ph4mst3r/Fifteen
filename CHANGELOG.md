@@ -1,4 +1,11 @@
-#### v2.0.0-beta-0.1.0 (2021-12-24)
+### v2.0.0-beta-0.1.0 (2021-12-25)
+
+##### Documentation Changes
+
+* **.travis.yml:**  add .travis.yml ([227ae63d](https://github.com/n0f4ph4mst3r/Fifteen/commit/227ae63d))
+* **BUILDING.md:**  update BUILDING.md ([b415dfc7](https://github.com/n0f4ph4mst3r/Fifteen/commit/b415dfc7))
+
+#### v2.0.0-beta-0.0.1 (2021-12-24)
 
 ##### Chores
 

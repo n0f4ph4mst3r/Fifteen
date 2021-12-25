@@ -10,6 +10,11 @@ endif()
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
 
+conan_add_remote(NAME bincrafters
+                 INDEX 1
+                 URL https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
+                 VERIFY_SSL True)
+
 foreach(TYPE ${CMAKE_CONFIGURATION_TYPES})
 conan_cmake_install(PATH_OR_REFERENCE ..
                     BUILD missing

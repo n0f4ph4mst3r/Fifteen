@@ -10,10 +10,8 @@
 #endif
 
 PuzzleApp::PuzzleApp(const wxString& title)
-    : wxFrame(NULL, wxID_ANY, title) {
+    : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX | wxMINIMIZE_BOX)) {
     wxInitAllImageHandlers();
-
-    this->SetWindowStyle(wxDEFAULT_FRAME_STYLE & ~(wxRESIZE_BORDER | wxMAXIMIZE_BOX | wxMINIMIZE_BOX));
 
     wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
 

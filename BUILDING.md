@@ -1,7 +1,7 @@
 ## Prerequisites
 
 * **python3** >= 3.8
-* **conan** >= 1.42.2 
+* **conan** >= 1.44.0
 * **cmake** >= 3.22
 * **A working compiler supporting C++ 20 functions
 
@@ -54,19 +54,17 @@ For example, in the git-bash run:
 
     git clone https://github.com/n0f4ph4mst3r/Fifteen
 
-3. Open CMake GUI.
+3. Configure project using CMake:
 
-Set the *Where is the source code* to the location where repository was cloned.
+       $ mkdir build && cd build
+       $ cmake .. -G "Visual Studio 16 2019"
+    
+4. Open Visual Studio project:
 
-Set *Where to build the binaries* to the location you want to place your build in. It is preferred that this location is not within the directory with the source code.
-
-4. Press Configure. You can choose which version of Visual Studio to use and the platform to build for in the pop-up. The x64 platform is a default option. Press Finish to start the configuration process.
-
-5. After successful configuration, you will see `Configuring don`e in the last line of the log. Press *Generate* to generate the Visual Studio project.
-
-6. After you see "Generating done", press *Open Project* to open the project in Visual Studio.
-
-7. Select "Build -> Build Solution".
+       $ .\\PuzzleProject.sln
+    
+    and build using the IDE.
+	   
 
 #### macOS
 
@@ -81,7 +79,7 @@ Set *Where to build the binaries* to the location you want to place your build i
     
 3. Open XCode project:
 
-       $ open PuzzleApp.xcodeproj
+       $ open PuzzleProject.xcodeproj
     
     and build using the IDE.
 
@@ -94,13 +92,25 @@ Set *Where to build the binaries* to the location you want to place your build i
 2. Configure project using CMake:
 
        $ mkdir build && cd build
-       $ cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-    
+       $ cmake .. -G "Unix Makefiles" 
+	   
+   `Ninja` generator working too:
+
+       $ cmake .. -G "Ninja" 
+	   
+	Use `-DCMAKE_BUILD_TYPE=Debug` for debug configuration.
+  
 3. Build project
+   
+   Makefiles:
 
        $ make
+	   
+   Ninja:
+   
+	   $ ninja
     
-4. Test the build
+4. Test the build:
 
        $ cd PuzzleApp
-       $ sudo make install
+       $ ./PuzzleApp

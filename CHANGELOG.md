@@ -1,3 +1,27 @@
+## v2.0.0 (2021-12-30)
+
+##### Chores
+
+* **CMakeLists.txt:**  add bincrafters remote URL ([f5a2206d](https://github.com/n0f4ph4mst3r/Fifteen/commit/f5a2206d))
+
+##### Documentation Changes
+
+*  add license file (b15dabc2)
+* **BUILDING.md:**  update build-insctructions ([bda4f23a](https://github.com/n0f4ph4mst3r/Fifteen/commit/bda4f23a))
+
+##### Bug Fixes
+
+*  disable resize window for Mac an Linux ([67546822](https://github.com/n0f4ph4mst3r/Fifteen/commit/67546822))
+
+##### Other Changes
+
+* **CMakeLists.txt:**  fix command for tests ([7d38a709](https://github.com/n0f4ph4mst3r/Fifteen/commit/7d38a709))
+*  delete .travis.yml ([acebdcec](https://github.com/n0f4ph4mst3r/Fifteen/commit/acebdcec))
+
+##### Refactors
+
+* **CMakeLists.txt:**  remove conan_cmake_run() macros ([d82b2b34](https://github.com/n0f4ph4mst3r/Fifteen/commit/d82b2b34))
+
 ### v2.0.0-beta-0.1.0 (2021-12-25)
 
 ##### Documentation Changes
@@ -67,7 +91,7 @@
 
 * **PuzzleApp.cpp:**  include aaaaaaa_logo.XPM and BACKGROUND.h ([41a59939](https://github.com/n0f4ph4mst3r/Fifteen/commit/41a59939))
 
-## v2.0.0-alpha (2021-12-12)
+### v2.0.0-alpha (2021-12-12)
 
 ##### Chores
 
@@ -136,7 +160,7 @@
 
 * **image-panel:**  change render-algorithm ([41874aef](https://github.com/n0f4ph4mst3r/Fifteen/commit/41874aefbab157c07b8bbc7e65a535b1016e04fa))
 
-## v1.0.0-alpha (2021-11-02)
+### v1.0.0-alpha (2021-11-02)
 
 ##### New Features
 

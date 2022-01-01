@@ -1,0 +1,41 @@
+name: C/C++ CI (Windows x64)
+
+on: [push,pull_request]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get Conan
+      uses: turtlebrowser/get-conan@v1.0
+      
+    - name: Add Bincrafters remote
+      run: conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
+    
+    - name: Enable revisions
+      run: conan config set general.revisions_enabled=1
+    
+    - name: Run CMake
+      run: cmake -B ${{github.workspace}}/build -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release
+    
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Compile
+      run: msbuild "build/PuzzleProject.sln" /m /verbosity:minimal
+      env:
+        Platform: x64
+        Configuration: Release
+        
+    - name: Run app
+      run: >-
+        build\PuzzleApp\Release\PuzzleApp.exe
+        
+    - name: Run tests
+      run: |
+        cd ${{github.workspace}}/build
+        ctest -C "Release"
+    

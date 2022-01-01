@@ -79,6 +79,7 @@ find_package(${GTEST_CONANPKG})
 target_link_libraries(Tests PRIVATE Puzzle GTest::gtest GTest::gtest_main)
 add_dependencies(Tests PuzzleApp)
 
+install(TARGETS PuzzleApp DESTINATION ${CMAKE_SOURCE_DIR}/bin)
 
 
 

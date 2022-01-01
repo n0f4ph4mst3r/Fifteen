@@ -12,11 +12,8 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
-
-conan_add_remote(NAME bincrafters
-                 INDEX 1
-                 URL https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
-                 VERIFY_SSL True)
+				 
+conan_config_set(NAME general.revisions_enabled VALUE 1)
 				 
 get_property(is_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)				 
 if( NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES )
@@ -80,6 +77,8 @@ target_link_libraries(Tests PRIVATE Puzzle GTest::gtest GTest::gtest_main)
 add_dependencies(Tests PuzzleApp)
 
 install(TARGETS PuzzleApp DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+
+
 
 
 

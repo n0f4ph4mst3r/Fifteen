@@ -9,15 +9,29 @@
 
 [The best way to install Conan is `pip`.](https://docs.conan.io/en/latest/installation.html)
 
-To install Conan on Windows:
+To install Conan on **Windows**:
 
     $ pip install conan
 
-To install Conan on macOS and Linux:
+To install Conan on macOS and **Linux**:
 
     $ sudo pip3 install conan
 
-Alternatively, on macOS, Conan is available from `brew`.
+Alternatively, on **macOS**, Conan is available from `brew`.
+
+**IMPORTANT!** At the time of writing the documentation, `wxWidgets` did not exist in the central [Conan Center](https://github.com/conan-io/conan-center-index) repository, so I used [Bincrafter](https://github.com/bincrafters/community) packages. Before building the project, you must add the following remote:
+
+    $ conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
+	
+Please note, that your Conan client also needs to have revisions enabled. You can do this via:
+
+    $ conan config set general.revisions_enabled=1
+	
+#### *Troubleshooting*
+
+Recipe for *wxWidgets* uses legacy GTK dependencies (in particular, *libwebkitgtk-dev* package is not available on Ubuntu 20.04). To fix this, you need to edit your `sources.list` with the following command:
+
+    $ echo "deb http://cz.archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
 
 ### Cmake
 
@@ -44,6 +58,8 @@ On Debian or Ubuntu, you can install everything required using the following com
     $ sudo apt-get update
     $ sudo apt-get install -y build-essential cmake git python3-pip
     $ sudo pip3 install conan
+	$ sudo apt-get update
+    $ sudo apt install libgtk2.0-dev libgl-dev libwebkitgtk-dev
 	
 #### Building on Windows
 
@@ -100,17 +116,17 @@ For example, in the git-bash run:
 	   
 	Use `-DCMAKE_BUILD_TYPE=Debug` for debug configuration.
   
-3. Build project
+3. Install project
    
    Makefiles:
 
-       $ make
+       $ make install
 	   
    Ninja:
    
-	   $ ninja
+	   $ ninja install
     
 4. Test the build:
 
-       $ cd PuzzleApp
+       $ cd ../bin
        $ ./PuzzleApp

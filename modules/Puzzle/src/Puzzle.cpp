@@ -2,16 +2,7 @@
 #include "Puzzle.h"
 
 Puzzle::Puzzle() : size(4) {
-	wxBitmap bmp(512, 512, 1);
-
-	wxMemoryDC dc(bmp);
-	dc.SetPen(*wxWHITE_PEN);
-	dc.SetBrush(*wxWHITE_BRUSH);
-
-	wxRect recToDraw(0, 0, 512, 512);
-	dc.DrawRectangle(recToDraw);
-
-	source = bmp.ConvertToImage();
+	source = wxImage(512, 512);
 }
 
 Puzzle::Puzzle(wxBitmap& source, const int sz) : source(source.ConvertToImage()), size(sz) {

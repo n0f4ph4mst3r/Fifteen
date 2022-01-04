@@ -1,3 +1,26 @@
+### v2.1.0 (2022-01-04)
+
+##### Chores
+
+* **CMakeLists.txt:**
+  *  add override ${CMAKE_CONFIGURATION_TYPES}, if ${CMAKE_BUILD_TYPE} defined [](https://github.com/n0f4ph4mst3r/Fifteen/commit/10f3f637)
+  *  remove bincrafters remote (https://github.com/n0f4ph4mst3r/Fifteen/commit/806452d4)
+  *  add install instructions (https://github.com/n0f4ph4mst3r/Fifteen/commit/3f91c07d)
+
+##### Documentation Changes
+
+* **BUILDING.md:**  update build-insctructions [1422bc82](https://github.com/n0f4ph4mst3r/Fifteen/commit/1422bc82)
+* **License.md:**  update copyrating [693de02d](https://github.com/n0f4ph4mst3r/Fifteen/commit/693de02d)
+* **.gitignore:**  add bin directory [ea771db6](https://github.com/n0f4ph4mst3r/Fifteen/commit/ea771db6)
+
+##### New Features
+
+*  add CI support [105c9eac](https://github.com/n0f4ph4mst3r/Fifteen/commit/105c9eac)
+
+##### Refactors
+
+* **Puzzle:**  small changes in default constructor [39bd1581](https://github.com/n0f4ph4mst3r/Fifteen/commit/39bd1581)
+
 ## v2.0.0 (2021-12-30)
 
 ##### Chores

@@ -1,3 +1,10 @@
+[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-windows-x64.yml/badge.svg)
+[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-gcc.yml)
+[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-clang.yml)
+[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml)
+[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml)
+[![Github Releases](https://img.shields.io/github/release/arahaan/bin2c.svg)](https://github.com/arahaan/bin2c/releases)
+
 # The Fifteen Puzzle
 <p align="center">
   <img src="https://media2.giphy.com/media/sPszRCMtdbYcZpNRvr/giphy.gif?cid=790b7611de87cba83636b16e97b3cd5e6971dfa38aa31618&rid=giphy.gif" alt="Demo" />

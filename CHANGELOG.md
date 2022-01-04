@@ -1,11 +1,17 @@
+#### v2.1.0 (2022-01-04)
+
+##### Documentation Changes
+
+* **README.md:**  fix badges [4bfa184a](https://github.com/n0f4ph4mst3r/Fifteen/commit/4bfa184a)
+
 ### v2.1.0 (2022-01-04)
 
 ##### Chores
 
 * **CMakeLists.txt:**
-  *  add override ${CMAKE_CONFIGURATION_TYPES}, if ${CMAKE_BUILD_TYPE} defined [](https://github.com/n0f4ph4mst3r/Fifteen/commit/10f3f637)
-  *  remove bincrafters remote (https://github.com/n0f4ph4mst3r/Fifteen/commit/806452d4)
-  *  add install instructions (https://github.com/n0f4ph4mst3r/Fifteen/commit/3f91c07d)
+  *  add override ${CMAKE_CONFIGURATION_TYPES}, if ${CMAKE_BUILD_TYPE} defined [10f3f637](https://github.com/n0f4ph4mst3r/Fifteen/commit/10f3f637)
+  *  remove bincrafters remote [806452d4](https://github.com/n0f4ph4mst3r/Fifteen/commit/806452d4)
+  *  add install instructions [3f91c07d](https://github.com/n0f4ph4mst3r/Fifteen/commit/3f91c07d)
 
 ##### Documentation Changes
 

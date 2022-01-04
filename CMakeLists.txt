@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
 
+get_property(is_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
+if(is_multi_config AND DEFINED CMAKE_BUILD_TYPE)
+SET(CMAKE_CONFIGURATION_TYPES ${CMAKE_BUILD_TYPE} CACHE STRING "" FORCE)
+endif()
+
 project(PuzzleProject)
 
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
@@ -12,13 +17,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
 include(${CMAKE_BINARY_DIR}/conan.cmake)
-
-conan_add_remote(NAME bincrafters
-                 INDEX 1
-                 URL https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
-                 VERIFY_SSL True)
-				 
-get_property(is_multi_config GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)				 
+				 				 
 if( NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES )
    set( CMAKE_BUILD_TYPE "Release" )
 endif()
@@ -78,6 +77,10 @@ add_subdirectory(tests)
 find_package(${GTEST_CONANPKG})
 target_link_libraries(Tests PRIVATE Puzzle GTest::gtest GTest::gtest_main)
 add_dependencies(Tests PuzzleApp)
+
+install(TARGETS PuzzleApp DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+
+
 
 
 

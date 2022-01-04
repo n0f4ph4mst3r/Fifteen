@@ -1,0 +1,43 @@
+name: C/C++ CI (Mac OSX clang)
+
+on: [push,pull_request]
+
+jobs:
+   build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get Conan
+      uses: turtlebrowser/get-conan@v1.0
+      
+    - name: Add Bincrafters remote
+      run: conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan    
+    
+    - name: Enable revisions
+      run: conan config set general.revisions_enabled=1
+             
+    - name: Install GTK+
+      run: |
+        echo "deb http://cz.archive.ubuntu.com/ubuntu bionic main universe" | sudo tee -a /etc/apt/sources.list
+        sudo apt-get update
+        sudo apt install libgtk2.0-dev libgl-dev libwebkitgtk-dev
+ 
+    - name: Compiler check
+      run: clang++ --version
+      
+    - name: Run CMake
+      run: cmake -B ${{github.workspace}}/build -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+      
+    - name: Compile
+      run: |
+        cd ${{github.workspace}}/build
+        make
+      env:
+        CXX: clang++
+
+    - name: Run tests
+      run: |
+        cd ${{github.workspace}}/build
+        make test

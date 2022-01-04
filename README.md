@@ -1,9 +1,9 @@
-[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-windows-x64.yml/badge.svg)
-[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-gcc.yml)
-[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-clang.yml)
-[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml)
-[![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml)
-[![Github Releases](https://img.shields.io/github/release/arahaan/bin2c.svg)](https://github.com/arahaan/bin2c/releases)
+![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-windows-x64.yml/badge.svg)
+![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-gcc.yml/badge.svg)
+![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-ubuntu-clang.yml/badge.svg)
+![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml/badge.svg)
+![Build Status](https://github.com/n0f4ph4mst3r/Fifteen/actions/workflows/ccpp-macos-gcc.yml/badge.svg)
+![Github Releases](https://img.shields.io/github/v/release/n0f4ph4mst3r/Fifteen)
 
 # The Fifteen Puzzle
 <p align="center">

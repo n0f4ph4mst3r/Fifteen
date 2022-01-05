@@ -1,4 +1,14 @@
-#### v2.1.0 (2022-01-04)
+#### v2.1.2 (2022-01-05)
+
+##### Documentation Changes
+
+* **README.md:**  fix badges [224919df](https://github.com/n0f4ph4mst3r/Fifteen/commit/224919df)
+
+##### Bug Fixes
+
+* **ccpp-macos-clang:**  fix name [037308e1](https://github.com/n0f4ph4mst3r/Fifteen/commit/037308e1)
+
+#### v2.1.1 (2022-01-04)
 
 ##### Documentation Changes
 
